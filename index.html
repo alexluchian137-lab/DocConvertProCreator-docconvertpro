@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>DocConvertPro</title>
+    <title>DocConvertPro - WORD to PDF</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -17,61 +17,86 @@
             justify-content: center;
         }
         .container {
-            padding: 60px 20px;
+            padding: 40px 20px;
             border-radius: 15px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            max-width: 800px;
+            max-width: 600px;
+            background: #FFFFFF;
+            color: #333;
         }
-        .header {
+        .title {
             font-size: 40px;
             font-weight: bold;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: slideFadeIn 1s ease-in forwards;
+            margin-bottom: 10px;
         }
-        .subheader {
+        .subtitle {
             font-size: 20px;
-            color: #E8ECEF;
-            margin: 20px 0;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: slideFadeIn 1s ease-in 0.2s forwards;
+            margin-bottom: 30px;
         }
-        .cta-button {
+        .file-upload {
+            margin-bottom: 20px;
+            padding: 20px;
+            border: 2px dashed #00C4B4;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .file-label {
+            color: #00C4B4;
+            font-size: 16px;
+        }
+        .convert-button {
             background: linear-gradient(135deg, #007BFF, #00C4B4);
             color: #FFFFFF;
             padding: 15px 40px;
             border-radius: 8px;
-            text-decoration: none;
+            border: none;
+            cursor: pointer;
             font-size: 16px;
-            display: inline-block;
             margin: 20px 0;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            opacity: 0;
-            transform: translateY(30px);
-            animation: slideIn 1.2s ease-in forwards;
         }
-        .cta-button:hover {
-            transform: scale(1.1);
+        .convert-button:hover {
+            transform: scale(1.05);
             box-shadow: 0 4px 20px rgba(0, 196, 180, 0.5);
             transition: all 0.3s ease;
         }
-        @keyframes slideFadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        .progress {
+            margin: 20px 0;
+            background: #F8F9FA;
+            border-radius: 8px;
+            height: 10px;
+            display: none; /* Hidden until conversion starts */
         }
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+        .progress-bar {
+            background: #00C4B4;
+            height: 10px;
+            width: 0;
+            border-radius: 8px;
+            transition: width 0.3s ease;
+        }
+        .security-note {
+            font-size: 14px;
+            color: #666;
+            margin: 20px 0;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">Convert & Translate Documents Instantly</div>
-        <div class="subheader">Transform files to PDF/Word or translate to 50+ languages for just £1.99/month!</div>
-        <a href="converter.html" class="cta-button">Get Started</a>
-        <div><a href="pricing.html" class="cta-button">View Pricing</a></div>
+        <div class="title">WORD to PDF</div>
+        <div class="subtitle">Or was it PDF to WORD?</div>
+        <form method="post" enctype="multipart/form-data">
+            <div class="file-upload">
+                <label for="file" class="file-label">Choose a file</label>
+                <input type="file" id="file" name="file" accept=".docx" style="display: none;">
+                <p>Or drag and drop your file here</p>
+            </div>
+            <button type="submit" class="convert-button">Convert Now</button>
+        </form>
+        <div class="progress">
+            <div class="progress-bar"></div>
+        </div>
+        <div class="security-note">For optimal security, your files are automatically deleted from our server 1 hour after the conversion.</div>
     </div>
 </body>
 </html>
